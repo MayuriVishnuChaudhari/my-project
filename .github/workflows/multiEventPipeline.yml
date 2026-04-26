@@ -3,10 +3,20 @@ on:
     push:
         branches:
             - main
+    pull_request:
+        branches:
+            - main
 
 jobs:
     on-push:
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - name: "running on main push"
               run: echo "running on main push"
+
+    on-pull-request: 
+        runs-on: ubuntu-Latest
+        steps:
+            - name: "Running on pull request"
+              run: echo "Running on pull request"
